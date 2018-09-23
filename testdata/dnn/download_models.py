@@ -581,13 +581,13 @@ models = [
     Model(
         name='TinyYolov2 (ONNX)',
         url='https://www.cntk.ai/OnnxModels/tiny_yolov2/opset_1/tiny_yolov2.tar.gz',
-        sha='5df7f3f8b8c3cec261f98ff7e015d4085d8ceb93',
+        sha='b9102abb8fa6f51368119b52146c30189353164a',
         filename='tiny_yolov2.tar.gz'),
     Model(
         name='TinyYolov2 (ONNX)',
         archive='tiny_yolov2.tar.gz',
         member='tiny_yolov2/model.onnx',
-        sha='c4b0dab30547f4f8e7ff8bfdd1ec64848f0e4342',
+        sha='433fecbd32ac8b9be6f5ee10c39dcecf9dc5c151',
         filename='onnx/models/tiny_yolo2.onnx'),
     Model(
         name='TinyYolov2 (ONNX)',
@@ -610,7 +610,7 @@ models = [
         name='CNN Mnist (ONNX)',
         archive='mnist.tar.gz',
         member='mnist/model.onnx',
-        sha='ce4fb4914cd1d9e0faed3294e5cecfd1847339763',
+        sha='e4fb4914cd1d9e0faed3294e5cecfd1847339763',
         filename='onnx/models/cnn_mnist.onnx'),
     Model(
         name='CNN Mnist (ONNX)',
@@ -673,13 +673,13 @@ models = [
     Model(
         name='Emotion FERPlus (ONNX)',
         url='https://www.cntk.ai/OnnxModels/emotion_ferplus/opset_7/emotion_ferplus.tar.gz',
-        sha='3a430611d47cae5ba84f1019531a3041cf5085c1',
+        sha='e6b00fcb944300840a9895b29ff98419e561c8b5',
         filename='emotion_ferplus.tar.gz'),
     Model(
         name='Emotion FERPlus (ONNX)',
         archive='emotion_ferplus.tar.gz',
         member='emotion_ferplus/model.onnx',
-        sha='3c0546c99910156aed7d7809fe7be9bd92168b05',
+        sha='2ef5b3a6404a5feb8cc396d66c86838c4c750a7e',
         filename='onnx/models/emotion_ferplus.onnx'),
     Model(
         name='Emotion FERPlus (ONNX)',
@@ -691,7 +691,7 @@ models = [
         name='Emotion FERPlus (ONNX)',
         archive='emotion_ferplus.tar.gz',
         member='emotion_ferplus/test_data_set_0/output_0.pb',
-        sha='a4842733bf293dfa08482509a2a7b2b23af9d5b0',
+        sha='ce76cd3173bdbcc48603ec0a51a0c711413049ce',
         filename='onnx/data/output_emotion_ferplus.pb'),
     Model(
         name='Squeezenet (ONNX)',
