@@ -9,6 +9,8 @@ if sys.version_info[0] < 3:
 else:
     from urllib.request import urlopen
 
+exitCode = 0
+failedSums = []
 
 class Model:
     MB = 1024*1024
@@ -69,7 +71,11 @@ class Model:
 
         print(' done')
         print(' file {}'.format(self.filename))
-        self.verify()
+        if not self.verify():
+            global exitCode, failedSums
+            print('  hash check failed')
+            failedSums.append(self.filename)
+            exitCode = 1
 
     def download(self):
         r = urlopen(self.url)
@@ -490,7 +496,7 @@ models = [
         name='VGG16_bn (ONNX)',
         archive='vgg16-bn.tar.gz',
         member='vgg16-bn/test_data_set_0/input_0.pb',
-        sha='55c285cfbc4d61e3c026302a3af9e7d220b82d0a ',
+        sha='55c285cfbc4d61e3c026302a3af9e7d220b82d0a',
         filename='onnx/data/input_vgg16-bn.pb'),
     Model(
         name='VGG16_bn (ONNX)',
@@ -673,7 +679,7 @@ models = [
     Model(
         name='Emotion FERPlus (ONNX)',
         url='https://www.cntk.ai/OnnxModels/emotion_ferplus/opset_7/emotion_ferplus.tar.gz',
-        sha='e6b00fcb944300840a9895b29ff98419e561c8b5',
+        sha='9ff80899c0cd468999db5d8ffde98780ef85455e',
         filename='emotion_ferplus.tar.gz'),
     Model(
         name='Emotion FERPlus (ONNX)',
@@ -691,7 +697,7 @@ models = [
         name='Emotion FERPlus (ONNX)',
         archive='emotion_ferplus.tar.gz',
         member='emotion_ferplus/test_data_set_0/output_0.pb',
-        sha='ce76cd3173bdbcc48603ec0a51a0c711413049ce',
+        sha='54f7892240d2d9298f5a8064a46fc3a8987015a5',
         filename='onnx/data/output_emotion_ferplus.pb'),
     Model(
         name='Squeezenet (ONNX)',
@@ -788,13 +794,13 @@ models = [
     Model(
         name='Shufflenet (ONNX)',
         url='https://s3.amazonaws.com/download.onnx/models/opset_9/shufflenet.tar.gz',
-        sha='fd2168ed9db9dbea4d134852ca8a69b1b08c5e9b',
+        sha='c99afcb7fcc809c0688cc99cb3709a052fde1de7',
         filename='shufflenet.tar.gz'),
     Model(
         name='Shufflenet (ONNX)',
         archive='shufflenet.tar.gz',
         member='shufflenet/model.onnx',
-        sha='96d3e7b3ea0b9b48c7aa98d7f4cb3fb94e666d86',
+        sha='a781faf9f1fe6d001cd7b6b5a7d1a228da0ff17b',
         filename='onnx/models/shufflenet.onnx'),
     Model(
         name='Shufflenet (ONNX)',
@@ -816,3 +822,9 @@ if __name__ == '__main__':
     for m in models:
         print(m)
         m.get()
+    if failedSums:
+        print('')
+        print('Failed hash checks for files:')
+        for name in failedSums:
+            print(name)
+    exit(exitCode)
